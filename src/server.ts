@@ -6,7 +6,6 @@ import jwt from "jsonwebtoken";
 
 const app = express();
 
-//ovime se dodaje mogucnost koriscenja json-a u express aplikaiciji.
 app.use(express.json);
 app.use(cors(
     {
@@ -42,25 +41,18 @@ app.get("/api/foods/search/:searchTerm", (req, res) =>{
 })
 
 
-//metoda koja se koristi za logovanje korisnika
 app.post("/api/users/login", (req, res) => {
-    //uzima se email i pass iz tela zahteva
     const {email, password} = req.body;
-    //pretrazuje se korisnik na osnovu email/pass kombinacije
     const user = sample_users.find(user => user.email === email && user.password === password);
 
     if(user){
-        //ako korisnik postoji generise se token i salje se odgovor (response) sa podacima korisnika
         res.send(generateToken(user))
     } else {
         res.status(400).send("Username or Password are not valid")
     }
 })
 
-//metoda za generisanje JWT tokena. Potrebno je prvo instalirati paket za kreiranje generateJwtToken
 const generateToken = (user:any) => {
-    //kreira se token pomocu metode Sign. Prvi argument je objekat sa podacima korisnika, drugi je secret (tekst koji sluzi za sifrovanje), a treci je objekat
-    //sa duzinom trajanja tokena 
     const token = jwt.sign(
         {
             email: user.email,
@@ -71,7 +63,6 @@ const generateToken = (user:any) => {
             expiresIn: "30d"
         }
     )
-    //token se dodeljuje user objektu. I na kraju se vraca novi user objekat.
     user.token = token;
     return user;
 } 
