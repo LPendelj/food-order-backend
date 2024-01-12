@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 
 const app = express();
 
-app.use(express.json);
+app.use(express.json());
 app.use(cors(
     {
         credentials: true,
@@ -71,6 +71,6 @@ const port = 5000;
 
 app.listen(
     port, () => {
-        console.log("Welcome from localhost!" + port);
+        console.log("Welcome from localhost! " + port);
     }
 ) 
