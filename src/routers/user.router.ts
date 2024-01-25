@@ -78,7 +78,6 @@ const generateToken = (user:User) => {
         }
     )
 
-    console.log(token);
     
     
     return {
