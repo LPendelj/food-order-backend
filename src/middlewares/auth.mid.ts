@@ -10,7 +10,6 @@ export default (req: any, res: any, next: any) => {
     try {
         
         const decodedUser = verify(token, process.env.JWT_SECRET!);
-        console.log(decodedUser);
         req.user = decodedUser
 
     } catch (error) {

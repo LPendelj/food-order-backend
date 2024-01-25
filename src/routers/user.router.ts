@@ -64,8 +64,6 @@ router.post("/register", asyncHandler(
 ))
 
 const generateToken = (user:User) => {
-    console.log(user);
-    
     const token = jwt.sign(
         {   
             id: user.id,
