@@ -58,6 +58,13 @@ router.post('/pay', asyncHandler(
     }
 ))
 
+router.get('/track/:id', asyncHandler(
+    async (req, res) => {
+        const order = await OrderModel.findById(req.params.id);
+        res.send(order);
+    }
+));
+
 export default router;
 
 async function getNewOrder(req: any) {
