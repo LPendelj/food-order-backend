@@ -52,9 +52,9 @@ router.post("/register", asyncHandler(
             id: '',
             name,
             email: email.toLowerCase(),
+            password: encryptedPassword,
             address,
-            isAdmin: false,
-            password: encryptedPassword
+            isAdmin: false            
         }
 
         const dbUser = await UserModel.create(newUser);
@@ -64,17 +64,23 @@ router.post("/register", asyncHandler(
 ))
 
 const generateToken = (user:User) => {
+    console.log(user);
+    
     const token = jwt.sign(
         {   
             id: user.id,
             email: user.email,
             isAdmin: user.isAdmin
         },
-        "SomeRandomText",
+        process.env.JWT_SECRET!,
         {
             expiresIn: "30d"
         }
     )
+
+    console.log(token);
+    
+    
     return {
         id: user.id,
         email: user.email,
