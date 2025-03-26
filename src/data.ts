@@ -67,7 +67,128 @@ export const sample_foods: any[] =  [
         imageUrl: '/assets/images/foods/food-6.jpg',
         tags: ['FastFood', 'Pizza', 'Lunch'],
       }
-
+      // ,
+      // {
+      //   "id": 7,
+      //   "name": "Sushi Roll",
+      //   "cookTime": "10-15",
+      //   "price": 15,
+      //   "favorite": true,
+      //   "origins": ["japan"],
+      //   "stars": 4.8,
+      //   "imageUrl": "/assets/images/foods/food-3.jpg",
+      //   "tags": ["Japanese", "Seafood", "Lunch"]
+      // },
+      // {
+      //   "id": 8,
+      //   "name": "Spaghetti Bolognese",
+      //   "cookTime": "30-40",
+      //   "price": 18,
+      //   "favorite": false,
+      //   "origins": ["italy"],
+      //   "stars": 4.6,
+      //   "imageUrl": "/assets/images/foods/food-4.jpg",
+      //   "tags": ["Pasta", "Italian", "Dinner"]
+      // },
+      // {
+      //   "id": 9,
+      //   "name": "Chicken Tikka Masala",
+      //   "cookTime": "25-35",
+      //   "price": 22,
+      //   "favorite": true,
+      //   "origins": ["india"],
+      //   "stars": 4.9,
+      //   "imageUrl": "/assets/images/foods/food-5.jpg",
+      //   "tags": ["Indian", "Spicy", "Dinner"]
+      // },
+      // {
+      //   "id": 10,
+      //   "name": "Fish and Chips",
+      //   "cookTime": "15-25",
+      //   "price": 12,
+      //   "favorite": false,
+      //   "origins": ["england"],
+      //   "stars": 4.3,
+      //   "imageUrl": "/assets/images/foods/food-6.jpg",
+      //   "tags": ["British", "Seafood", "Lunch"]
+      // },
+      // {
+      //   "id": 11,
+      //   "name": "Hamburger",
+      //   "cookTime": "10-15",
+      //   "price": 8,
+      //   "favorite": true,
+      //   "origins": ["usa"],
+      //   "stars": 4.4,
+      //   "imageUrl": "/assets/images/foods/food-7.jpg",
+      //   "tags": ["FastFood", "American", "Lunch"]
+      // },
+      // {
+      //   "id": 12,
+      //   "name": "Pad Thai",
+      //   "cookTime": "15-25",
+      //   "price": 14,
+      //   "favorite": true,
+      //   "origins": ["thailand"],
+      //   "stars": 4.7,
+      //   "imageUrl": "/assets/images/foods/food-8.jpg",
+      //   "tags": ["Thai", "Noodles", "Dinner"]
+      // },
+      // {
+      //   "id": 13,
+      //   "name": "Falafel",
+      //   "cookTime": "10-15",
+      //   "price": 10,
+      //   "favorite": false,
+      //   "origins": ["middle east"],
+      //   "stars": 4.2,
+      //   "imageUrl": "/assets/images/foods/food-9.jpg",
+      //   "tags": ["Vegetarian", "Middle Eastern", "Lunch"]
+      // },
+      // {
+      //   "id": 14,
+      //   "name": "Ramen",
+      //   "cookTime": "15-20",
+      //   "price": 13,
+      //   "favorite": true,
+      //   "origins": ["japan"],
+      //   "stars": 4.6,
+      //   "imageUrl": "/assets/images/foods/food-10.jpg",
+      //   "tags": ["Japanese", "Noodles", "Dinner"]
+      // },
+      // {
+      //   "id": 15,
+      //   "name": "Caesar Salad",
+      //   "cookTime": "5-10",
+      //   "price": 9,
+      //   "favorite": true,
+      //   "origins": ["usa"],
+      //   "stars": 4.1,
+      //   "imageUrl": "/assets/images/foods/food-11.jpg",
+      //   "tags": ["Salad", "Healthy", "Lunch"]
+      // },
+      // {
+      //   "id": 16,
+      //   "name": "BBQ Ribs",
+      //   "cookTime": "60-90",
+      //   "price": 25,
+      //   "favorite": true,
+      //   "origins": ["usa"],
+      //   "stars": 4.8,
+      //   "imageUrl": "/assets/images/foods/food-12.jpg",
+      //   "tags": ["American", "BBQ", "Dinner"]
+      // },
+      // {
+      //   "id": 17,
+      //   "name": "Shawarma",
+      //   "cookTime": "15-20",
+      //   "price": 11,
+      //   "favorite": false,
+      //   "origins": ["middle east"],
+      //   "stars": 4.4,
+      //   "imageUrl": "/assets/images/foods/food-13.jpg",
+      //   "tags": ["Middle Eastern", "FastFood", "Lunch"]
+      // }
     ]
 
     export const sample_tags: any[] = [
