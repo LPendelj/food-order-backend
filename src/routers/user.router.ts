@@ -38,30 +38,49 @@ router.post("/login", asyncHandler(
     }
 ))
 
-router.post("/register", asyncHandler(
-    async (req, res) =>{
-        const { name, email, password, address } = req.body;
-        const user = await UserModel.findOne({email});
-        if(user){
-            res.status(HTTP_BAD_REQUEST).send('User already exists. Please login!')
-            return
-        }
-
-        const encryptedPassword = await bcrypt.hash(password, 10);
-        const newUser: User = {
-            id: '',
-            name,
-            email: email.toLowerCase(),
-            password: encryptedPassword,
-            address,
-            isAdmin: false            
-        }
-
-        const dbUser = await UserModel.create(newUser);
-
-        res.send(generateToken(dbUser));
+router.post("/register", async (req, res) => {
+    try {
+      const { name, email, password, address } = req.body;
+  
+      if (!name || !email || !password || !address) {
+        return res.status(400).send("All fields are required.");
+      }
+  
+      const normalizedEmail = email.toLowerCase().trim();
+      const existingUser = await UserModel.findOne({ email: normalizedEmail });
+  
+      if (existingUser) {
+        return res.status(400).send("User already exists. Please login!");
+      }
+  
+      const hashedPassword = await bcrypt.hash(password, 10);
+  
+      const newUser: User = {
+        id: '',
+        name,
+        email: normalizedEmail,
+        password: hashedPassword,
+        address,
+        isAdmin: false,
+      };
+  
+      const dbUser = await UserModel.create(newUser);
+      return res.send(generateToken(dbUser));
+    } catch (error: any) {
+      console.error("Error during registration:", error);
+  
+      // Handle duplicate key errors explicitly
+      if (
+        error.name === "MongoServerError" &&
+        error.code === 11000 &&
+        error.keyPattern?.email
+      ) {
+        return res.status(400).send("Email already in use.");
+      }
+  
+      return res.status(500).send("Something went wrong.");
     }
-))
+  });
 
 const generateToken = (user:User) => {
     const token = jwt.sign(

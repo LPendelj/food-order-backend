@@ -1,10 +1,8 @@
-import {connect, ConnectOptions} from 'mongoose';
+import {connect} from 'mongoose';
 
 export const dbConnect = () => {
-    connect(process.env.MONGO_URI!, {
-        useUnifiedTopology: true
-    } as ConnectOptions).then(
-        () => console.log("connect successfully"),
+    connect(process.env.MONGO_URI!).then(
+        () => console.log("connected successfully"),
         (error) => console.log(error)
     )
 }
