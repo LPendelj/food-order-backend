@@ -1,7 +1,7 @@
 import {Router} from 'express'; 
 import { sample_foods, sample_tags } from '../data';
 import asyncHandler from 'express-async-handler'
-import { FoodModel } from '../models/food.model';
+import { Food, FoodModel } from '../models/food.model';
 
 const router = Router();
 
@@ -91,6 +91,36 @@ router.get("/:foodId", asyncHandler(
     }
 ))
 
+router.post("/", asyncHandler(
+    async (req, res, next) =>{
+           const { name, price, tags, favorite, stars, imageUrl, origins, cookTime } = req.body;
+      
+          if (!name || !price || !tags ) {
+            res.status(400).send("Missing fields!");
+          }
+      
+          const existingFood = await FoodModel.findOne({ name });
+      
+          if (existingFood) {
+            res.status(400).send("Food already exists.");
+          }
+      
+          const newFood: Food = {
+            id: '',
+            name,
+            price,
+            tags: [],
+            favorite: false,
+            stars: 0,
+            imageUrl: '',
+            origins: [],
+            cookTime,
+          };
+      
+          const dbFood = await FoodModel.create(newFood);
+          res.send(dbFood);
+    }
+))
 
 
 export default router
