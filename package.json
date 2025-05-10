@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && cp -r src/public built/public",
+    "build": "tsc",
     "start": "node built/server.js"
   },
   "keywords": [],
