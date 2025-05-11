@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors(
     {
         credentials: true,
-        origin: ["http://localhost:4200", "https://food-order-backend-w9fd.onrender.com"]
+        origin: ["http://localhost:4200", "https://6820b62d3ed4950008ce983e--foodman-foodorder.netlify.app", "*.netlify.app"]
     }
 ))
 
